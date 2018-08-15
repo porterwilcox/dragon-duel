@@ -1,0 +1,35 @@
+.container-fluid {
+    background-color: black;
+}
+.title {
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+}
+button {
+    visibility: hidden;
+    margin: 5rem 0;
+    pointer-events: visible;
+}
+.card-img-top {
+    max-height: 500px;
+    width: auto;
+}
+.champions, .dragons {
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: center;
+    align-items: center;
+}
+.champion-card, .dragon-card {
+    width: 40%;
+    margin: .5rem;
+}
+.champion-card:hover {
+    box-shadow: 0 0 5px 10px green;
+}
+.dragon-card:hover {
+    box-shadow: 0 0 5px 10px red;
+}

@@ -9,11 +9,19 @@
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-
 </head>
 
 <body>
-
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 title">
+                <h1>Dragon Duel</h1>
+                <button class="btn-danger" onclick="app.controllers.duelController.startDuel()">Fight to the Death</button>
+            </div>
+            <div class="col-sm-6 champions"></div>
+            <div class="col-sm-6 dragons"></div>
+        </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
     <script src="app/main.js" type="module"></script>
 </body>
