@@ -18,9 +18,16 @@
                 <h1>Dragon Duel</h1>
                 <button class="btn-danger" onclick="app.controllers.duelController.startDuel()">Fight to the Death</button>
             </div>
-            <div class="col-sm-6 champions"></div>
-            <div class="col-sm-6 dragons"></div>
+            <div class="col-sm-6 selection">
+                <h2 class="selection-subtitle">Choose your Champion!</h2>
+                <div class="champions"></div>
+            </div>
+            <div class="col-sm-6 selection">
+                <h2 class="selection-subtitle">Which Dragon will you fight?</h2>
+                <div class="dragons"></div>
+            </div>
         </div>
+        <div class="row duel"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
     <script src="app/main.js" type="module"></script>

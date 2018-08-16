@@ -1,29 +1,23 @@
 import Champion from "../models/Champion.js";
 import Dragon from "../models/Dragon.js";
 
-const championsAPI = axios.create({
-    baseURL: `https://dragon-duel.herokuapp.com/api/champions/`,
+const duelAPI = axios.create({
+    baseURL: `https://dragon-duel.herokuapp.com/api/`,
     timeout: 3000 //throw error after 3 seconds with no response
-})
-const dragonsAPI = axios.create({
-    baseURL: `https://dragon-duel.herokuapp.com/api/dragons/`,
-    timeout: 3000 //throw error after 3 seconds with no response
-})
-const gamesAPI = axios.create({
-    baseURL: `https://dragon-duel.herokuapp.com/api/games`,
-    timeout: 3000
 })
 let championsArr
 let dragonsArr
 let yourChampion
 let yourDragon
+let game
+let gameID
 
 export default class DuelService {
     constructor() {
 
     }
     getChampions(callback) {
-        championsAPI.get()
+        duelAPI.get('champions/')
             .then(res => {
                 championsArr = res.data.map(c => {
                     return new Champion(c)
@@ -32,7 +26,7 @@ export default class DuelService {
             })
     }
     getDragons(callback) {
-        dragonsAPI.get()
+        duelAPI.get('dragons/')
             .then(res => {
                 dragonsArr = res.data.map(d => {
                     return new Dragon(d)
@@ -58,11 +52,24 @@ export default class DuelService {
         })
         callback(yourChampion, yourDragon)
     }
-    startDuel() {
-        gamesAPI.post('', {
+    startDuel(callback) {
+        duelAPI.post('games/', {
             dragonId: yourDragon.id,
             championId: yourChampion.id
         })
-        .then(res => console.log(res))
+            .then(res => {
+                game = res.data.game
+                gameID = game._id
+                callback(game)
+            })
+    }
+    attack(attack, callback) {
+        duelAPI.put(`games/${gameID}`, {
+            attack: attack
+        })
+            .then(res => {
+                game = res.data
+            })
+            .then(callback(game))
     }
 }

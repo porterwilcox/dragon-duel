@@ -8,10 +8,15 @@
     align-items: center;
     color: white;
 }
-button {
+.btn-danger {
     visibility: hidden;
-    margin: 5rem 0;
+    margin: 1rem 0;
+    font-size: 2.5rem;
     pointer-events: visible;
+}
+.selection-subtitle {
+    text-align: center;
+    color: white
 }
 .card-img-top {
     max-height: 500px;
@@ -32,4 +37,37 @@ button {
 }
 .dragon-card:hover {
     box-shadow: 0 0 5px 10px red;
+}
+.card-title {
+    width: 75%;
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+    align-items: center;
+}
+img {
+    max-height: 75vh;
+    width: auto;
+}
+.btn-success {
+    width: 30%;
+}
+.card-body {
+    display: flex;
+    justify-content: space-evenly;
+}
+.end {
+    height: 90vh;
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: center;
+    align-items: center;
+}
+.win {
+    font-size: 20rem;
+    color: green;
+}
+.lose {
+    font-size: 20rem;
+    color: red;
 }
