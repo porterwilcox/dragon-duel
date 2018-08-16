@@ -69,7 +69,7 @@ export default class DuelService {
         })
             .then(res => {
                 game = res.data
+                callback(game)
             })
-            .then(callback(game))
     }
 }
